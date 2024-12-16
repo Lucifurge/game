@@ -4,10 +4,15 @@ const path = require('path');
 
 // Initialize Express server
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000; // Use environment port for production
 
 // Serve static files (HTML, JS, CSS, assets)
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Handle the root route
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html')); // Serve the index.html file if it exists
+});
 
 // HTTP server
 const server = app.listen(port, () => {
