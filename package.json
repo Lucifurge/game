@@ -6,5 +6,6 @@
   "scripts": {
     "start": "node server.js",
     "build": "echo 'No build step needed'"
-  }
+  },
+  "license": "MIT"
 }
